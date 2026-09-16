@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router";
+
 export const UserCard = ({ users }) => {
+  const navigate = useNavigate();
+  const handleAdd = () => {
+    navigate("/addUser");
+  };
   return (
     <div className="min-h-screen bg-slate-950 px-6 py-10">
       <div className="mx-auto max-w-6xl">
@@ -9,6 +15,13 @@ export const UserCard = ({ users }) => {
           </h1>
 
           <p className="mt-2 text-slate-400">Meet our amazing community</p>
+
+          <button
+            onClick={handleAdd}
+            className="bg-green-700 text-white text-center p-2 m-2 rounded-full"
+          >
+            AddUser
+          </button>
         </div>
 
         {/* Cards */}

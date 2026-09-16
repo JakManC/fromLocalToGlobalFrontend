@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { UserCard } from "./components/UserCard";
+import useUserStore from "./store/userStore";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
+  const users = useUserStore((state) => state.users);
+  const setUsers = useUserStore((state) => state.setUsers);
   const getDataFromDb = async () => {
     const res = await axios.get(
       "https://fromlocallytoglobally.onrender.com/api/getAll",
